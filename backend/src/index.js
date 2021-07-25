@@ -1,30 +1,48 @@
-characters = [];
+document.addEventListener('DOMContentLoaded', () => {
 
-async function getCharacters(force = false) {
+    characters = [];
+    randomcards = [];
+    var contadorCharacters = 1;
+    var contadorCards = 1;
 
-    if (localStorage.getItem('db') === null || JSON.parse(localStorage.getItem('counter')) > 9 || force) {
+    async function getCharacters(force = false) {
 
-        const res = await fetch('https://rickandmortyapi.com/api/character');
-        const data = await res.json();
-        characters = data.results;
+        if (localStorage.getItem('db') === null || force) {
+            do {
 
-        localStorage.setItem('db', JSON.stringify(characters));
-        localStorage.setItem('counter', 0);
+                const res = await fetch('https://rickandmortyapi.com/api/character?page='.concat(a));
+                const data = await res.json();
+                valor = data.results;
+                valor.forEach(a => {
+                    characters.push(a);
+                });
+                localStorage.setItem('db', JSON.stringify(characters));
+                a++
+            }
+            while (contadorCharacters < 35);
 
-    } else {
-        characters = JSON.parse(localStorage.getItem('db'));
-        let counter = JSON.parse(localStorage.getItem('counter'));
-        localStorage.setItem('counter', counter + 1);
+        } else {
+
+            characters = JSON.parse(localStorage.getItem('db'));
+        }
+        return characters;
     }
-    return characters;
-}
 
-getCharacters().then((characters) => console.log(characters))
+    getCharacters().then((characters) => console.log(characters))
 
-let tpl = '';
-characters.forEach(cards => {
-    tpl +=
-        `<div class="card mb-3">
+    do {
+        aleatoriedade = characters[Math.floor(Math.random() * characters.length)];
+        console.log(aleatoriedade)
+        randomcards.push(aleatoriedade);
+        contadorCards++
+    }
+    while (contadorCards < 9);
+    console.log(randomcards)
+
+    let tpl = '';
+    randomcards.forEach(cards => {
+        tpl +=
+            `<div class="card mb-3">
         <div class="row g-0">
             <div class="col-md-4">
                 <img src="${cards.image}" class=" img-fluid ">
@@ -41,5 +59,6 @@ characters.forEach(cards => {
             </div>
         </div>
     </div>`
+    });
+    document.getElementById('cards').innerHTML = tpl;
 });
-document.getElementById('cards').innerHTML = tpl;
