@@ -22,14 +22,9 @@ body {
             width: 100%;
         }
         
-        .searchBar {
+         /* .searchBar {
             position: absolute;
-            /* margin: auto; */
-            /* top: 0; */
             margin-top: 6%;
-            /* left: 50;
-  right: 50; */
-            /* bottom: 0; */
             width: 300px;
             height: 100px;
             margin-left: 40%;
@@ -37,14 +32,9 @@ body {
         
         .searchBar .search {
             position: absolute;
-            /* margin-left: 324%; */
-            /* margin: auto; */
             margin-top: -5%;
-            /* margin-right: 0; */
             top: 0;
             right: 0;
-            /* bottom: 0; */
-            /* left: 0; */
             width: 80px;
             height: 80px;
             background: #5ff05e;
@@ -56,9 +46,7 @@ body {
         
         .searchBar .search:hover {
             cursor: pointer;
-        }
-        /* AJUSTAR - barra  */
-        
+        }  
         .searchBar .search::before {
             content: "";
             position: absolute;
@@ -73,8 +61,6 @@ body {
             transform: rotate(45deg);
             transition: all 0.5s;
         }
-        /* AJUSTAR - circulo  */
-        
         .searchBar .search::after {
             content: "";
             position: absolute;
@@ -92,14 +78,6 @@ body {
         
         .searchBar input {
             font-family: "Inconsolata", monospace;
-            /* position: absolute; */
-            /* margin: auto; */
-            /* margin-left: 170%; */
-            /* margin-right: 50%; */
-            /* top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0; */
             width: 50px;
             height: 50px;
             outline: none;
@@ -111,8 +89,6 @@ body {
             border-radius: 30px;
             box-shadow: 0 0 25px 0 #5ff05e, 0 20px 25px 0 rgba(0, 0, 0, 0.2);
             transition: all 1s;
-            /* opacity: 0; */
-            /* z-index: 5; */
             font-weight: bolder;
             letter-spacing: 0.1em;
         }
@@ -122,7 +98,6 @@ body {
         }
         
         .searchBar input:focus {
-            /* width: 300px; */
             opacity: 1;
             cursor: text;
         }
@@ -132,28 +107,11 @@ body {
             background: #151515;
             z-index: 6;
         }
-        /* .searchBar input:focus ~ .search::before {
-  top: 0;
-  left: 0;
-  width: 25px;
-}
-
-.searchBar input:focus ~ .search::after {
-  top: 0;
-  left: 0;
-  width: 25px;
-  height: 2px;
-  border: none;
-  background: white;
-  border-radius: 0%;
-  transform: rotate(-45deg);
-} */
-        
         .searchBar input::placeholder {
             color: white;
             opacity: 0.5;
             font-weight: bolder;
-        }
+        } */
         
         .card {
             border-radius: 0.5rem;
@@ -164,4 +122,9 @@ body {
         .img-fluid {
             height: 211.2px;
             object-fit: cover;
+        } 
+
+        .searchBar{
+          margin-top: 18%;
+          bottom: 0;
         }
